@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS7-For-Loop-4-Select-Araclar</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <h1 id="anabaslik">Select City</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <div class="mb-3">
+                    <label for="araclar">Araç Seç</label>
+                <select id="araclar" class="form-select">
+                    <option value="1350000">BMW 3.16i</option> <!-- 0.index -->
+                    <option value="1562000">Mercedes GLA200</option> <!-- 1.index -->
+                    <option value="2367000">Mercedes GLC 4Matic</option>
+                    <option value="902000">Audi A3</option> <!-- 3.index -->
+                    <option value="1816000">Volvo XC40</option>
+                    <option value="1426000">Volkswagen Tiguan Rline</option>
+                    <option value="714000">Volkswagen Golf</option>  <!-- 6.index -->
+                    <option value="1302000">Peugeot 3008 GT</option>
+                    <option value="789000">Peugeot 2008</option>
+                    <option value="1050000">Citroen C5 Aircross</option>  <!-- 9.index -->
+                    <option value="743000">Citroen C4</option>
+                    <option value="900000">Toyota Corolla</option>
+                    <option value="1150000">Kia Sportage</option>
+                    <option value="635000">Kia Ceed</option>
+                    <option value="598000">Citroen C3 Aircross</option>
+                    <option value="408000">Fiat Egea</option>
+                    <option value="436000">Daica Sandero</option>
+                </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="sonucVar" class="form-label">Aranacak Araç Giriniz</label>
+                    <input type="text" class="form-control" id="sonucVar" aria-describedby="sonucVar">
+                </div>
+
+                <div class="mb-3">
+                    <label for="minFiyat" class="form-label">Min. Fiyat</label>
+                    <input type="number" class="form-control" id="minFiyat" aria-describedby="minFiyat" min="1">
+                </div>
+                <div class="mb-3">
+                    <label for="maxFiyat" class="form-label">Max. Fiyat</label>
+                    <input type="number" class="form-control" id="maxFiyat" aria-describedby="maxFiyat" min="1">
+                </div>
+
+                <button type="button" onclick="gonder()" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div id="mesaj"></div>
+            <div id="mesaj1"></div>
+        </div>
+    </div>
+
+    <h2>Fiyat Aralığı</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="fiyatAraligi"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="filtreAraclar"></div>
+        </div>
+    </div>
+</div>
+
+
+  <script>
+//Not:
+//***boolean ifadelerin isleyisi icin asagidaki calisma yapildi
+//***daima if(true) olursa icerisi calisir bu nedenle !false=true veriliyor.If parentizi daima karsilastima ile calistirilir
+//***ayrica !sonucVar=(sonucVar == false)=true olmasinin sebebi kisaca  (false==false )  olmasi icindir, yani true yu yakalamak icindir.(sonucVar=false idi false==false buradan geliyor. 1.false sonucVar dan gelen)
+// " == " ifadesi bir karsilastirma ifadesidir.Esitlik degildir.
+
+let sonucVar=false;
+let x=!sonucVar;
+console.log(sonucVar)
+console.log(x)
+if(x){
+    document.getElementById("mesaj1").innerHTML="!!!Boolean Notlari Burada"
+    console.log(!sonucVar)
+}else{
+    document.getElementById("mesaj1").innerHTML="Calismadi"
+    
+}
+console.log(sonucVar)
+
+     function gonder(){
+      let min=Number(document.getElementById("minFiyat").value);
+      let max=Number(document.getElementById("maxFiyat").value);
+      let slct=document.getElementById("araclar");
+     let araKelime=document.getElementById("sonucVar").value;
+     let sonucVar=false;
+      for(let i=0;i<slct.options.length;i++){
+        if(slct.options[i].value>min && slct.options[i].value<max){
+            console.log(slct.options[i].value,slct.options[i].text)
+            document.getElementById("mesaj").innerHTML+=slct.options[i].value + " - " + slct.options[i].text +"<br>";
+        }
+        if(slct.options[i].text==araKelime){
+            sonucVar=true;
+            document.getElementById("mesaj").innerHTML="Aranan " + araKelime +" bulundu"
+        }
+        if(!sonucVar){
+            document.getElementById("mesaj").innerHTML="Aranan " + araKelime +" bulunamadi"
+        }
+      } 
+    } 
+
+   
+
+  </script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+</body>
+</html>

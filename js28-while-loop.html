@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS7-For-Break</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <h1>For While-Loop</h1>
+   <div class="row">
+    <div class="col-md-4">
+      <div id="mesaj" class="mt-5"></div>
+    </div>
+    <div class="col-md-4">
+      <div id="mesaj1" class="mt-5"></div>
+    </div>
+    <div class="col-md-4">
+      <div id="mesaj2" class="mt-5"></div>
+    </div>
+   </div> 
+  
+    
+  </div>
+
+  <script>
+    //Döngünün sarta göre oldugu durumlarda while kullanilir.Döngünün kac kere dönecegi belli degildir
+    let i=0
+    while(i<20){
+      document.getElementById("mesaj").innerHTML+=i + "<br>";
+      i++;
+    }
+
+    //k-- ifadesi mesaj1 den önce yazilirsa 49 dan baslar asagiya iner 30 da biter, mesaj1 den sonra gelirse 50 den baslar asagi iner 31 de sona erer.Genellikle mesaj1 den sonrasina konur.
+    
+    let k=50;
+    while(k>30){    
+      k--;
+      document.getElementById("mesaj1").innerHTML+=k + "<br>";
+    }
+
+    // Burada da görülecegi gibi her ekrana yansima durumunda döngü sayisi farkli oluyor. Yani döngü sayisi net belli olmaz
+    var l=1;
+    var p=0;
+    var toplam=100;
+    while(toplam>0){
+      p=Math.floor(Math.random()*10)+1;
+      toplam-=p;
+      document.getElementById("mesaj2").innerHTML +=l +" . islem: -"+ p + " = " + toplam +"<br>";
+       l++;
+    }
+
+
+  </script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+</body>
+</html>

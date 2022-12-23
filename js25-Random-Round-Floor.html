@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS7-For-Loop-6-Urunler</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+         <h1>Random-Round-Floor-Ceil(Hepsi Console da)</h1>  
+    <div id="mesaj"></div>
+          
+    </div>
+
+
+  <script>
+var rastgeleSayi=Math.random();  // 0(dahil) ile 1(dahil degil) arasinda bir sayi üreten methoddur.
+console.log(rastgeleSayi)
+
+var rastgeleSayi1=rastgeleSayi*10; // 0(dahil) ile 10(dahil degil) arasinda bir sayi üreten methoddur.
+console.log(rastgeleSayi1)
+
+var rastgeleSayi2=rastgeleSayi*100; // 0(dahil) ile 100(dahil degil) arasinda bir sayi üreten methoddur.
+console.log(rastgeleSayi2)
+
+var rastgeleSayi3=Math.round(rastgeleSayi*10); //sayiyi düzgün yuvarlama yapar.
+console.log(rastgeleSayi3)
+
+var rastgeleSayi4=Math.ceil(rastgeleSayi*10); //sayiyi bulundugu aralikta üstteki uca yuvarlar.
+console.log(rastgeleSayi4)
+
+var rastgeleSayi5=Math.floor(rastgeleSayi*10); //sayiyi bulundugu aralikta alttaki uca yuvarlar.
+console.log(rastgeleSayi5)
+
+var rastgeleSayi6=Math.floor(rastgeleSayi*100+1);  // 1(dahil) ile 100(dahil) arasinda sayi üretir
+console.log(rastgeleSayi6)
+
+var rastgeleSayi7=Math.floor(rastgeleSayi*100)+1;  // 1(dahil) ile 100(dahil) arasinda sayi üretir
+console.log(rastgeleSayi7)
+   
+var rastgeleSayi8=Math.floor(rastgeleSayi*51)+50;  // 50(dahil) ile 100(dahil) arasinda sayi üretir
+console.log(rastgeleSayi8)
+
+var rastgeleSayi9=Math.floor(rastgeleSayi*31)+20;  // 20(dahil) ile 50(dahil) arasinda sayi üretir
+console.log(rastgeleSayi9)
+
+var rastgeleSayi10=0;
+for(let i=1;i<5;i++){
+rastgeleSayi10=Math.floor(Math.random()*9)+7;  // 7(dahil) ile 15(dahil) arasinda sayi üretir
+console.log("7 ile 15 arasinda 4 tane sayi; " + rastgeleSayi10)
+}
+
+var sayi=16;
+console.log(Math.sqrt(sayi));//Girilen sayinin Karekökünü alir
+
+let sayi2=Math.min(4,7,3,11,35,2,56); //Girilen sayilardan en kücügünü alir 
+console.log(sayi2);
+let sayi4=Math.max(4,7,3,11,35,2,56,13,22,-7); //Girilen sayilardan en büyügünü alir 
+console.log(sayi4);
+
+let sayi3=Math.abs(-42);  //Girilen sayinin mutlak degerini alir
+console.log(sayi3);
+  </script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+</body>
+</html>
