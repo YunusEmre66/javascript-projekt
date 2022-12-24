@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Objects</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 id="anabaslik">Objects</h1>
+        <div class="row">
+            <div class="col-md-6">
+               
+            </div>
+            <div class="col-md-6">
+                <div id="mesaj"></div>
+            </div>
+        </div>
+    </div>
+
+  <script>
+
+ var araba={
+    marka:"Mercedes",
+    model:"C200",
+    renk:"Gri",
+    vites:"Triptonik"
+ }
+ console.log(araba)
+ console.log(araba.model); //Objenin herhangi bir elemanini cagirma
+ araba.yakit="Dizel";
+ console.log(araba)
+
+
+ var ogrenci={
+    adi:"Melek Reyyan",
+    soyadi:"Ceran",
+    sinifi:"2-A",
+    numara:453,
+    tamisim: function(){
+        return this.adi + " "+ this.soyadi;
+    },
+    adres:{
+        il:"Mugla",
+        ilce:"Mentese",
+        mah:"Türdü"
+    },
+    dersleri:["Matematik","Deutsch","Englisch","Kunst"],
+    diller:["Turkisch","Deutsch","Englisch"]
+ }
+ console.log(ogrenci.tamisim() + " - " +ogrenci.adres.il + " - " + ogrenci.dersleri[0] + "-" + ogrenci.diller[1]);
+
+ function Araba(marka,model,renk,vites){
+    this.marka=marka;
+    this.model=model;
+    this.renk=renk;
+    this.vites=vites;
+ }
+
+ var yeniAraba=new Araba("BMW","5.16D","Siyah","Otomatik");
+ console.log(yeniAraba);
+  </script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+</body>
+</html>
