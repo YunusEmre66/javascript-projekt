@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_DOM-Settimeout</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+      ul#anamenu{display: flex;justify-content: space-evenly;list-style: none;}
+      ul#anamenu a{color:maroon;text-decoration: none;}
+      .ustmenu{position: relative;top: -40px;transition: .4s ease-in;}
+      .opened{top: 0px !important;}
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="ustmenu">
+      <ul id="anamenu">
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#">Hakkimizda</a></li>
+        <li><a href="#">Iletisim</a></li>
+        <li><a href="#">Hizmetler</a></li>
+        <li><a href="#">Ürünler</a></li>
+      </ul>
+      <div class="text-center" id="menu">MENU</div>
+    </div>
+  </div>
+    
+    <div id="mesaj"></div>
+  </div>
+
+  <script>
+function bgRenklendir(){
+  var colorRed=Math.floor(Math.random()*256);
+  var colorGreen=Math.floor(Math.random()*256);
+  var colorBlue=Math.floor(Math.random()*256);
+  document.getElementById("menu").style.backgroundColor="rgb("  + colorRed + "," + colorGreen + "," + colorBlue +  ")"  //böyle yazim durumlarinda degiskenler haricindeki her seyi ayri ayri tirnak icine almak gerekir.
+}
+
+function bgRenklendir2(){
+  var colorRed=Math.floor(Math.random()*256);
+  var colorGreen=Math.floor(Math.random()*256);
+  var colorBlue=Math.floor(Math.random()*256);
+  var colorRed2=Math.floor(Math.random()*256);
+  var colorGreen2=Math.floor(Math.random()*256);
+  var colorBlue2=Math.floor(Math.random()*256);
+  document.getElementById("menu").style.background="linear-gradient(to right, rgb("+ colorRed +","+ colorGreen + "," + colorBlue +"),rgb("+ colorRed2 +","+ colorGreen2 + "," + colorBlue2 +"))";
+}
+
+setInterval(()=>{
+  document.getElementById("mesaj").innerText=Math.floor(Math.random()*100); //Belirli araliklarla 0 ile 99 arasi sayilari getiren fonk.
+},1000)
+
+setInterval(bgRenklendir2,1000);  //Belirli araliklarla arka planin renk degisimini yapar
+
+
+
+
+
+
+
+
+
+document.querySelector(".ustmenu").addEventListener("mouseenter",(e)=>{
+  e.target.classList.add("opened")
+})
+
+document.querySelector(".ustmenu").addEventListener("mouseleave",(e)=>{
+  setTimeout(()=>{
+    e.target.classList.remove("opened");
+  },1000)
+})
+
+  
+  </script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+</body>
+</html>
