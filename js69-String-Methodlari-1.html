@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_String-Methodlari</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+    
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>String-Functions</h1>
+    <h3>slice-substring-substr-concat-trim-trimStart-trimEnd-toUpperCase-toLowerCase</h3>
+<div id="mesaj2" class="fs-4 mb-5"></div>
+    <div id="mesaj1" class="fs-4"></div>
+    
+    
+  </div>
+
+  <script>
+var isim="Mesrure"
+var isimSoyisim="Mesrure Dayi"
+document.getElementById("mesaj1").innerHTML=isim + " - " +isimSoyisim +"<br>";
+document.getElementById("mesaj1").innerHTML+="Burada yazili olan isim ve isimSoyisim'in harf uzunluklari: "+isim.length + " - " +isimSoyisim.length +"<br>";
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.slice(3,7) + "<br>";//3 le baslayip 7 ye kadar olani al
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.substring(3) + "<br>"; //3 le baslayip sonrasini al
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.substr(3,1) + "<br>"; //3 le baslayip  1 tanesini al***
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.substr(3,2) + "<br>"; //3 le baslayip  2 tanesini al
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.concat("-" +isim) + "<br>"; 
+
+var ad="  Mehmet Akif Ersoy ";
+document.getElementById("mesaj1").innerHTML+=ad.trim()+ "<br>"; //Bastaki ve sondaki bosluklari temizler ancak console.log ta fark edilir
+document.getElementById("mesaj1").innerHTML+=ad.trimStart()+ "<br>"; //Bastaki  bosluklari temizler
+document.getElementById("mesaj1").innerHTML+=ad.trimEnd()+ "<br>"; //Sondaki  bosluklari temizler
+var eser=" Safahat ";
+document.getElementById("mesaj1").innerHTML+=ad.concat(eser).trim()+ "<br>";
+document.getElementById("mesaj1").innerHTML+=ad.concat(eser).toUpperCase()+ "<br>";
+document.getElementById("mesaj1").innerHTML+=ad.concat(eser).toLowerCase()+ "<br>";
+
+var metin="1-A sınıfı Ve 2-A sinifi öğrencileri ve öğrenilen <strong> sesleri </strong> kullanarak oluşturulan cümlelerle kisa metin oluşturup okuma vE yazma etkinligi ve yapti.";
+document.getElementById("mesaj2").innerHTML=metin.replace("sesleri","heceleri") ;//replace sadece 1 tanenin degisimini icerir büyük kücük duyarliligi vardir
+metin=metin.replace("sesleri","heceleri")//Büyük kücük duyarli olarak ilk olani degistirir
+metin=metin.replace(/Etkinligi/i,"aktivitesi")//Büyük kücük duyarsiz yaparak ilk olani degistirir 
+metin=metin.replace(/ve/g,"ile");//Büyük kücük duyarli olarak hepsini degistirir 
+metin=metin.replace(/ve/gi,"ile");//Büyük kücük duyarsiz olarak hepsini degistirir 
+
+console.log(metin)
+
+
+//Burada metin icerisinden secilen kelimeleri büyütme fonksiyonu calistiriliyor
+let text = "Mr Blue has a blue house and a blue car";
+let result = text.replace(/blue|house|car/gi, function (x) {
+  return x.toUpperCase();
+});
+console.log(result)
+
+
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.padStart(14,"E") + "<br>";//Basa length miktarini(14) saglayacak kadar E ekler
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.padEnd(14,"E") + "<br>";//Sona length miktarini(14) saglayacak kadar E ekler
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.charAt(8) + "<br>";//Sadece belirtileni harfi keser
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.charCodeAt(8) + "<br>";//Sadece belirtileni harfin BOM degerini verir
+document.getElementById("mesaj1").innerHTML+=isimSoyisim[8] + "<br>";//Sadece belirtilen harfi verir
+
+
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.split(" ")+ "<br>"; //Eger bu sekilde bosluk olursa kelimeler arasina "," koyar ve dizi yapar.
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.split("")+ "<br>"; //Eger bu sekilde bosluk yoksa harfler arasina "," koyar ve dizi yapar.
+document.getElementById("mesaj1").innerHTML+=isimSoyisim.split("").length+ "<br>";
+
+var dizi=isim.split("");
+for(let harf of dizi){
+  console.log(harf)
+}
+
+for(let harf of dizi){
+  document.getElementById("mesaj1").innerHTML+=harf +"<br>"
+}
+
+document.getElementById("mesaj1").innerHTML+=ad.indexOf("m") +"<br>"; //indexOf() Büyük kücük duyarlilik vardir
+document.getElementById("mesaj1").innerHTML+=ad.trim().indexOf("m") + "<br>"; 
+document.getElementById("mesaj1").innerHTML+=ad.trim().lastIndexOf("m") + "<br>"; 
+document.getElementById("mesaj1").innerHTML+=ad.search("Akif")+ "<br>"; //Büyük kücük duyarlilik vardir buldugu ilk konumu verir
+document.getElementById("mesaj1").innerHTML+=ad.includes("Akif")+ "<br>"; //Büyük kücük duyarlilik vardir true veya false döner
+document.getElementById("mesaj1").innerHTML+=ad.trim().startsWith("Me")+ "<br>"; //Büyük kücük duyarlilik vardir true veya false döner
+document.getElementById("mesaj1").innerHTML+=ad.trim().endsWith("ersoy")+ "<br>"; //Büyük kücük duyarlilik vardir true veya false döner
+
+
+//Bu kisim önemlidir
+var sonDizi=isim.split("");
+for(let h of sonDizi){
+  document.getElementById("mesaj1").innerHTML+=h+"<br>"
+}
+
+for(let i=0;i<sonDizi.length;i++){
+  document.getElementById("mesaj1").innerHTML+=isim.substr(i,1) + "<br>"
+}
+
+
+
+  </script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+</body>
+</html>

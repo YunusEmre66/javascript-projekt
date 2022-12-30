@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_String-Methodlari-4</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+     .kutu{width: 50px;height: 50px;text-align: center;background: linear-gradient(rgb(121,2,2),rgb(213,1,1));color: white;font-size: 2em;margin-right: 20px;font-weight: bold;}
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>String-Functions4</h1>
+    <form id="dilForm" method="post">
+    <div id="kutular">
+
+    </div>
+    <input type="hidden" id="hdnDil" name="hdnDil"/> <!--Formu göndereceksek javascript teki kodlar okunmayabileceginden burasi yapilmalidir-->
+    <input type="submit" class="btn btn-success" value="Gönder"/>
+    </form>
+    <div id="mesaj" class="fs-4"></div>
+</div>
+
+  <script>
+  //form gönderilme olayının yakalanması
+  document.querySelector("#dilForm").addEventListener("submit",()=>{
+    //seciliDiller 
+    // sondan 1 karakter al ve , mü diye kontrol et
+    // eğer virgül ise
+      // baştan son karaktere kadar al
+    //selim, length=6 --> 0:s 1:e 2:l 3:i 4:m 5:,
+    // mustafa,  length = 8  --> 0:m 1:u 2:s 3:t 4:a 5:f 6:a 7:,
+    if(seciliDiller.substr(seciliDiller.length-1,1) == ","){
+      seciliDiller = seciliDiller.substr(0,seciliDiller.length-1);
+    }
+    document.getElementById("hdnDil").value = seciliDiller;
+  })
+
+    var diller=["Türkçe","İngilizce","Almanca","Fransızca","İspanyolca","Flemenkçe","Rusça","Yunanca","Portekizce","Arapça","Farsça","Çince"];
+    var sonuc="<div class='diller d-flex flex-wrap'>";
+    var seciliDiller = "";
+    for(let i in diller){
+      sonuc+=`<div class="form-check me-3">
+                <input class="form-check-input" type="checkbox" value="${diller[i]}" name="chkDil${i}" id="chkDil${i}">
+                <label class="form-check-label" for="chkDil${i}">
+                  ${diller[i]}
+                </label>
+              </div>`
+    }
+    sonuc += "</div>";
+
+    document.getElementById("kutular").innerHTML = sonuc;
+
+    var dnm = document.querySelectorAll(".form-check-input");
+    console.log(dnm);
+    for(let chk of dnm){
+      if(chk.checked)
+        console.log(chk.value);
+    }
+    document.querySelectorAll(".form-check-input").forEach(dil=>{
+      dil.addEventListener("change",(e)=>{
+        if(e.target.checked){
+          seciliDiller += e.target.value + ",";
+        }
+        else{
+          seciliDiller = seciliDiller.replace(e.target.value + ",","");
+        }
+        document.getElementById("mesaj").innerHTML = seciliDiller;
+      });
+    })
+
+
+
+  </script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+</body>
+</html>
