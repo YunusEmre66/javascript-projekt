@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Calisma-7</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+    .renkDegistir{background-color: black !important;color : #060707;}
+    .navbar-brand img{width: 60px;}
+    </style>
+</head>
+<body > 
+  <div class="container">
+    <h1 id="anabaslik"><span>JS Sayi Tahmin Oyunu</span></h1>
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label for="txtTahmin" class="form-label">Tahmin</label>
+          <input type="number" min="1" class="form-control" id="txtTahmin" aria-describedby="Tahmin">
+        </div>
+      </div>
+      <div class="col-md-2">
+        &nbsp;<br>
+        <button type="button" class="btn btn-dark" id="btnTahminEt">Tahmin Et </button>  <!--buradan onclick i sildik event örnegi icin.--> 
+      </div>
+      
+      <div class="col-md-2">
+        &nbsp;<br>
+        <button type="button" class="btn btn-dark" id="btnYeniOyun">Yeni Oyun </button>  <!--buradan onclick i sildik event örnegi icin.-->
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-3">
+        <div id="mesaj1" class="fs-6"></div>
+      </div>
+      <div class="col-md-3">
+        <div id="resim" class="w-25"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+var sayi=Math.floor(Math.random()*100)+1;   
+var syc=0;
+ document.getElementById("txtTahmin").setAttribute("disabled",true);
+ document.getElementById("btnTahminEt").setAttribute("disabled",true);
+
+document.getElementById("btnYeniOyun").addEventListener("click",()=>{
+document.getElementById("txtTahmin").removeAttribute("disabled");
+document.getElementById("btnTahminEt").removeAttribute("disabled");
+
+console.log(sayi)
+ })
+
+
+
+ 
+ document.getElementById("btnTahminEt").addEventListener("click",()=>{
+ var tahmin=Number(document.getElementById("txtTahmin").value);
+ syc++;
+ if(tahmin>sayi){
+  document.getElementById("mesaj1").innerHTML="Tahmininiz sayidan büyük daha kücük deger giriniz";
+ }else if(tahmin<sayi){
+  document.getElementById("mesaj1").innerHTML="Tahmininiz sayidan kücük daha büyük deger giriniz";
+ }else{
+  document.getElementById("mesaj1").innerHTML=syc+".denemede sayiyi buldunuz"
+ }
+ 
+ })
+  </script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+</body>
+</html>

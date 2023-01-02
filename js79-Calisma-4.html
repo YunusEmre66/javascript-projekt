@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Calisma-4</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+    .genres{font-style: italic;font-size: small;color: rgb(136, 134, 134);}
+    .network{font-size: small;color: navy;}
+    </style>
+</head>
+<body> 
+  <div class="container">
+    <h1 id="anabaslik">JS Araç Satış Fiyatı Hesaplama</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="fiyat" class="form-label">Fabrika Fiyatı</label>
+                <input type="number" class="form-control" id="fiyat" aria-describedby="Fabrika Fiyatı">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="motorHacmi" class="form-label">Motor Hacmi</label>
+                <input type="number" class="form-control" id="motorHacmi" aria-describedby="motor Hacmi">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="btnTopla" class="form-label d-block">&nbsp;</label>
+                <button type="button" id="bul" class="btn btn-primary" >HESAPLA</button>
+            </div>
+        </div>
+    </div>
+   
+    <div class="row">
+        <div class="col-md-12">
+            <span id="sonuc"></span>
+            <table class="table" style="width:40%">
+                <tbody>
+                    <tr>
+                        <th class="text-end">ÖTV Oranı</th>
+                        <td id="otvoran"></td>
+                      </tr>
+                  <tr>
+                    <th class="text-end">ÖTV</th>
+                    <td id="otv"></td>
+                  </tr>
+                  <tr>
+                    <th class="text-end">Ara Toplam</th>
+                    <td id="araToplam"></td>
+                  </tr>
+                  <tr>
+                    <th class="text-end">KDV</th>
+                    <td class="text-danger" id="kdv"></td>
+                  </tr>
+                  <tr>
+                    <th class="text-end">Genel Toplam</th>
+                    <td class="fw-bold" id="genelToplam"></td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+  <script>
+    document.getElementById("bul").addEventListener("click",()=>{
+      let fiyat=Number(document.getElementById("fiyat").value);
+      let motHacim=Number(document.getElementById("motorHacmi").value);
+      let kdv=fiyat*0.18;
+      let arafiyat=0;
+      let otvOran=0;
+      let otvMiktar=0;
+      let sonFiyat=0;
+      if(motHacim<=1.3){
+       otvOran=37;
+      }else if(motHacim>1.3 && motHacim<=1.6){
+        otvOran=75;
+      }else{
+        otvOran=90;
+      }
+      arafiyat=fiyat+otvMiktar;
+      sonFiyat=arafiyat*1.18;
+      otvMiktar=fiyat*otvOran/100;
+      document.getElementById("otvoran").innerHTML=otvOran;
+      document.getElementById("otv").innerHTML=otvMiktar;
+      document.getElementById("araToplam").innerHTML=arafiyat;
+      document.getElementById("kdv").innerHTML=kdv;
+      document.getElementById("genelToplam").innerHTML=sonFiyat;
+
+    }) 
+
+  </script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+</body>
+</html>
