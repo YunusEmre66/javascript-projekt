@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Calisma-10</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+  
+    </style>
+</head>
+<body > 
+ 
+
+  <script>
+let url = "https://www.suatceran.com";
+let kursadi = "Komple Web Gelistirme Kursu";
+
+// 1- url kaç karakterlidir?
+// 2- kursAdi kaç kelimeden oluşmaktadır?
+// 3- url https ile mi başlıyor?
+// 4- kursAdi içerisinde Eğitimi kelimesi var mı?
+// 5- url ve kursAdi değişkenlerini kullanarak aşağıdaki string bilgiyi oluşturunuz.
+// https://www.suatceran.com/komple-web-gelistirme-kursu
+let sayi=url.length;
+console.log(sayi)
+
+
+let kelime=kursadi.split(" ")
+console.log(kelime.length)
+
+if(url.startsWith("https")){
+  console.log("evet")
+}else{
+  console.log("hayir")
+}
+
+if(kursadi.includes("Egitimi")){
+  console.log("evet")
+}else{
+  console.log("hayir")
+}
+
+let degisim=kursadi.toLowerCase().split(" ").join("-")
+console.log(degisim)
+let sonHal=url.concat(degisim);
+console.log(sonHal)
+
+  </script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+</body>
+</html>

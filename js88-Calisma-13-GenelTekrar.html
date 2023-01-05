@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Calisma-13</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+  
+    </style>
+</head>
+<body > 
+ 
+
+  <script>
+let sayilar = [1,5,7,15,3,25,12,24];
+
+// 1- sayilar listesindeki her bir elemanın karesini yazdırınız.
+// 2- sayilar listesindeki hangi sayılar 5' in katıdır?
+// 3- sayilar listesindeki çift sayıların toplamını bulunuz.
+
+let urunler = ["iphone 12","samsung s22","iphone 13","samsung s23","samsung s20"];
+
+// 4- urunler listesindeki tüm ürünleri büyük harf ile yazdırınız.
+// 5- urunler listesinde samsung geçen kaç ürün vardır?
+
+
+let ogrenciler = [
+    {"ad":"yiğit", "soyad": "bilgi", "notlar": [60,70,60]},
+    {"ad":"ada", "soyad": "bilgi", "notlar": [80,70,80]},
+    {"ad":"çınar", "soyad": "turan", "notlar": [10,20,60]}
+];
+
+//6- Ogrenciler listesindeki her öğrencinin not ortalaması ve başarı durumlarını yazdırınız.
+//7- Tüm öğrencilerin not ortalaması kaçtır?
+
+//Cözümler
+
+//1-)
+//Yöntem-1
+let karesi=""
+for(let sayi of sayilar){
+karesi+=sayi**2 +" - ";
+}
+console.log(karesi);
+//Yöntem-2
+let sonuc="";
+sayilar.forEach(sayi=>{
+   sonuc+=sayi**2 +" - "
+})
+console.log(sonuc);
+
+//Yöntem-3
+//sonuclar dizi olarak isteniyorsa
+let karesi2=sayilar.map((x)=>x**2)
+console.log(karesi2);
+
+//2-)
+//Yöntem-1
+let bolum="";
+for(let sayi of sayilar){
+    if(sayi%5==0){
+        bolum+=sayi + " "
+    }
+}
+console.log(bolum);
+
+//Yöntem-2
+let besinKati=sayilar.filter((x)=>x%5==0)
+console.log(besinKati);
+
+
+
+//3-)
+//Yöntem-1
+let ciftSayi=sayilar.filter((x)=>x%2==0)
+console.log(ciftSayi);
+let toplam=0;
+for(let sayi of ciftSayi){
+   toplam+=sayi
+}
+console.log(toplam);
+//Yöntem-2
+var toplamGenel=ciftSayi.reduce((topla,sayi)=>topla+sayi)
+console.log(toplamGenel);
+
+//Yöntem-3
+let topl=0;
+for(let sayi of sayilar){
+if(sayi%2==0){
+    topl+=sayi;
+}
+}
+console.log(topl)
+
+
+//4-)
+let sonHal=[];
+for(let urun of urunler){
+sonHal.push(urun.toUpperCase());
+}
+console.log(sonHal);
+
+//5-)
+var filtreli=urunler.filter((x)=>x.includes("samsung"));
+console.log(filtreli);
+
+//6-)
+var genel_Ort=0;
+var genel_top=0;
+for(let ogrenci of ogrenciler){
+    let not_ort=0;//Burada olusturulan degiskenlere verilen O degerleri sayesinde her ögrenci icin ayri ayri ortalamalar hesaplaniyor.
+    let not_toplam=0;// Cünkü her defasinda 0 dan alarak topluyor.
+    for(let not of ogrenci.notlar){
+        not_toplam+=not;
+    }
+   not_ort=not_toplam/3;
+   genel_top+=not_ort;
+   console.log(ogrenci.ad + " - " + not_ort.toFixed())
+   
+    
+}  
+    genel_Ort=genel_top/3
+    console.log("Genel ortalama: " + genel_Ort.toFixed())
+  </script>
+
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> 
+  
+</body>
+</html>
