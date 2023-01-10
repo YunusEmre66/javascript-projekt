@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Calisma-16</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+  
+    </style>
+</head>
+<body > 
+ <div class="container">
+    <h4>Fonksiyonlar-Bir cümleyi istenilen kelime sirasindan sonra "..." koyarak özetlemek</h4>
+    <div id="mesaj1"></div>
+    <div id="mesaj2"></div>
+   
+ </div>
+
+
+  <script>
+var cumle="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, eveniet. Cum, enim? Rerum quaerat obcaecati incidunt est officiis dolor molestiae tenetur, soluta optio harum nemo voluptatum minima asperiores! Libero ipsam sapiente voluptates reprehenderit reiciendis asperiores cum facere expedita quod. Blanditiis."
+
+var marka="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ducimus illum cumque quae alias non placeat, perspiciatis eveniet culpa ad nam cupiditate facere reprehenderit dolorem voluptatum, quam quis ipsam maxime rerum aut pariatur! Hic odio nostrum inventore sint! Aut tempore nulla esse commodi expedita impedit illo reprehenderit nisi accusamus tenetur porro, quibusdam nobis consequuntur? Delectus sapiente cupiditate doloremque repellendus molestias blanditiis rerum odio ipsam excepturi quasi, incidunt similique dicta quae."
+function ozet(paragraf,konum){
+    var parDizi=paragraf.split(" ");
+    var sonHal="";
+    if(konum<=parDizi.length){
+      for(let i=0;i<=konum;i++){
+    if(i<konum){
+        sonHal+=parDizi[i] + "  ";
+    }else{
+        sonHal+=parDizi[i]+"..."
+    }
+   }
+   console.log(sonHal)  
+    }
+    if(konum>parDizi.length){
+        sonHal=paragraf+"...";
+       console.log(sonHal) 
+    }
+    
+}
+ozet(marka,75)
+ozet(cumle,10)
+
+  </script>
+
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> 
+  
+</body>
+</html>
